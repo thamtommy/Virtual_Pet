@@ -22,6 +22,20 @@ class VirtualPet:
         else:
             print("{0} is already clean!".format(self.name))
 
+    def status(self):
+        if self.hygiene == 5 and (self.hunger == 0) and (self.energy == 10):
+            print("{0} is very happy!".format(self.name))
+        elif self.hygiene < 5 and self.hygiene >= 3:
+            print("I feel dirty. :( ")
+        elif self.hygiene < 3:
+            print("Please clean me!")
+        elif self.hunger >0 and self.hunger <= 2:
+            print("I feel a bit hungry.")
+        elif self.hunger > 2 and self.hunger <5:
+            print("I am very hungry!")
+        else:
+            print("{0} is happy".format(self.name)) 
+
 def ShowMenu():
     print()
     print("MENU")
@@ -59,6 +73,8 @@ def main():
         print("{0}'s energy is now {1}".format(pet_one.name,pet_one.energy))
     elif MenuChoice == '2':
         pet_one.clean("Wash")
+    elif MenuChoice == '3':
+        pet_one.status()
 
 if __name__ == "__main__":
     main()
